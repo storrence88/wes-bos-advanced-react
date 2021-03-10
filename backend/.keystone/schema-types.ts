@@ -51,6 +51,56 @@ export type UserWhereInput = {
   readonly email_in?: ReadonlyArray<Scalars['String'] | null> | null;
   readonly email_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
   readonly password_is_set?: Scalars['Boolean'] | null;
+  readonly passwordResetToken_is_set?: Scalars['Boolean'] | null;
+  readonly passwordResetIssuedAt?: Scalars['String'] | null;
+  readonly passwordResetIssuedAt_not?: Scalars['String'] | null;
+  readonly passwordResetIssuedAt_lt?: Scalars['String'] | null;
+  readonly passwordResetIssuedAt_lte?: Scalars['String'] | null;
+  readonly passwordResetIssuedAt_gt?: Scalars['String'] | null;
+  readonly passwordResetIssuedAt_gte?: Scalars['String'] | null;
+  readonly passwordResetIssuedAt_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly passwordResetIssuedAt_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly passwordResetRedeemedAt?: Scalars['String'] | null;
+  readonly passwordResetRedeemedAt_not?: Scalars['String'] | null;
+  readonly passwordResetRedeemedAt_lt?: Scalars['String'] | null;
+  readonly passwordResetRedeemedAt_lte?: Scalars['String'] | null;
+  readonly passwordResetRedeemedAt_gt?: Scalars['String'] | null;
+  readonly passwordResetRedeemedAt_gte?: Scalars['String'] | null;
+  readonly passwordResetRedeemedAt_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly passwordResetRedeemedAt_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly magicAuthToken_is_set?: Scalars['Boolean'] | null;
+  readonly magicAuthIssuedAt?: Scalars['String'] | null;
+  readonly magicAuthIssuedAt_not?: Scalars['String'] | null;
+  readonly magicAuthIssuedAt_lt?: Scalars['String'] | null;
+  readonly magicAuthIssuedAt_lte?: Scalars['String'] | null;
+  readonly magicAuthIssuedAt_gt?: Scalars['String'] | null;
+  readonly magicAuthIssuedAt_gte?: Scalars['String'] | null;
+  readonly magicAuthIssuedAt_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly magicAuthIssuedAt_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly magicAuthRedeemedAt?: Scalars['String'] | null;
+  readonly magicAuthRedeemedAt_not?: Scalars['String'] | null;
+  readonly magicAuthRedeemedAt_lt?: Scalars['String'] | null;
+  readonly magicAuthRedeemedAt_lte?: Scalars['String'] | null;
+  readonly magicAuthRedeemedAt_gt?: Scalars['String'] | null;
+  readonly magicAuthRedeemedAt_gte?: Scalars['String'] | null;
+  readonly magicAuthRedeemedAt_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
+  readonly magicAuthRedeemedAt_not_in?: ReadonlyArray<
+    Scalars['String'] | null
+  > | null;
 };
 
 export type UserWhereUniqueInput = {
@@ -63,12 +113,26 @@ export type SortUsersBy =
   | 'name_ASC'
   | 'name_DESC'
   | 'email_ASC'
-  | 'email_DESC';
+  | 'email_DESC'
+  | 'passwordResetIssuedAt_ASC'
+  | 'passwordResetIssuedAt_DESC'
+  | 'passwordResetRedeemedAt_ASC'
+  | 'passwordResetRedeemedAt_DESC'
+  | 'magicAuthIssuedAt_ASC'
+  | 'magicAuthIssuedAt_DESC'
+  | 'magicAuthRedeemedAt_ASC'
+  | 'magicAuthRedeemedAt_DESC';
 
 export type UserUpdateInput = {
   readonly name?: Scalars['String'] | null;
   readonly email?: Scalars['String'] | null;
   readonly password?: Scalars['String'] | null;
+  readonly passwordResetToken?: Scalars['String'] | null;
+  readonly passwordResetIssuedAt?: Scalars['String'] | null;
+  readonly passwordResetRedeemedAt?: Scalars['String'] | null;
+  readonly magicAuthToken?: Scalars['String'] | null;
+  readonly magicAuthIssuedAt?: Scalars['String'] | null;
+  readonly magicAuthRedeemedAt?: Scalars['String'] | null;
 };
 
 export type UsersUpdateInput = {
@@ -80,6 +144,12 @@ export type UserCreateInput = {
   readonly name?: Scalars['String'] | null;
   readonly email?: Scalars['String'] | null;
   readonly password?: Scalars['String'] | null;
+  readonly passwordResetToken?: Scalars['String'] | null;
+  readonly passwordResetIssuedAt?: Scalars['String'] | null;
+  readonly passwordResetRedeemedAt?: Scalars['String'] | null;
+  readonly magicAuthToken?: Scalars['String'] | null;
+  readonly magicAuthIssuedAt?: Scalars['String'] | null;
+  readonly magicAuthRedeemedAt?: Scalars['String'] | null;
 };
 
 export type UsersCreateInput = {
@@ -95,6 +165,19 @@ export type _ListSchemaFieldsInput = {
   readonly type?: Scalars['String'] | null;
 };
 
+export type PasswordAuthErrorCode =
+  | 'FAILURE'
+  | 'IDENTITY_NOT_FOUND'
+  | 'SECRET_NOT_SET'
+  | 'MULTIPLE_IDENTITY_MATCHES'
+  | 'SECRET_MISMATCH';
+
+export type CreateInitialUserInput = {
+  readonly name?: Scalars['String'] | null;
+  readonly email?: Scalars['String'] | null;
+  readonly password?: Scalars['String'] | null;
+};
+
 export type KeystoneAdminUIFieldMetaCreateViewFieldMode = 'edit' | 'hidden';
 
 export type KeystoneAdminUIFieldMetaListViewFieldMode = 'read' | 'hidden';
@@ -108,12 +191,28 @@ export type KeystoneAdminUISortDirection = 'ASC' | 'DESC';
 
 export type UserListTypeInfo = {
   key: 'User';
-  fields: 'id' | 'name' | 'email' | 'password';
+  fields:
+    | 'id'
+    | 'name'
+    | 'email'
+    | 'password'
+    | 'passwordResetToken'
+    | 'passwordResetIssuedAt'
+    | 'passwordResetRedeemedAt'
+    | 'magicAuthToken'
+    | 'magicAuthIssuedAt'
+    | 'magicAuthRedeemedAt';
   backing: {
     readonly id: string;
     readonly name?: string | null;
     readonly email?: string | null;
     readonly password?: string | null;
+    readonly passwordResetToken?: string | null;
+    readonly passwordResetIssuedAt?: Date | null;
+    readonly passwordResetRedeemedAt?: Date | null;
+    readonly magicAuthToken?: string | null;
+    readonly magicAuthIssuedAt?: Date | null;
+    readonly magicAuthRedeemedAt?: Date | null;
   };
   inputs: {
     where: UserWhereInput;
