@@ -2,7 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/users": "pages/users.js",
-  "/init": "pages/init.js",
-  "/users/[id]": "pages/users/[id].js"
+  "/products": "pages/products.js",
+  "/products/[id]": "pages/products/[id].js"
 }
