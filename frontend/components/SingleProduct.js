@@ -17,7 +17,7 @@ const ProductStyles = styled.div`
   }
 `;
 
-const SINGLE_ITEM_QUERY = gql`
+export const SINGLE_ITEM_QUERY = gql`
   query SINGLE_ITEM_QUERY($id: ID!) {
     Product(where: { id: $id }) {
       id
@@ -34,13 +34,17 @@ const SINGLE_ITEM_QUERY = gql`
 `;
 
 const SingleProduct = ({ id }) => {
-  const { data, loading, error } = useQuery(SINGLE_ITEM_QUERY, { variables: { id: id } });
-  const { name, description, price, photo } = data.Product;
+  const { loading, error, data } = useQuery(SINGLE_ITEM_QUERY, {
+    variables: { id: id }
+  });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <DisplayError error={error} />;
 
+  const { name, description, price, photo } = data.Product;
+
   return (
+    // <p>something</p>
     <ProductStyles>
       <Head>
         <title>Sick Fits | {name}</title>
