@@ -1,8 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const useForm = (initial = {}) => {
   // Create a state object for our inputs
   const [inputs, setInputs] = useState(initial);
+  const initialValues = Object.values(initial).join('');
+
+  useEffect(() => {
+    // This function runs when the things we are watching change
+    setInputs(initial);
+  }, [initialValues]);
 
   const handleChange = (event) => {
     let { name, value, type } = event.target;
