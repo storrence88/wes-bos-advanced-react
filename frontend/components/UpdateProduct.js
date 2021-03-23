@@ -1,6 +1,7 @@
 import gql from 'graphql-tag';
 import { useMutation, useQuery } from '@apollo/client';
 import { SINGLE_ITEM_QUERY } from './SingleProduct';
+import { Router } from 'next/router';
 import Form from './styles/Form';
 import DisplayError from './ErrorMessage';
 import useForm from '../lib/useForm';
@@ -43,7 +44,7 @@ const UpdateProduct = ({ id }) => {
         description: inputs.description
       }
     }).catch(console.error);
-    // Router.push({ pathname: `/products/${res.data.createProduct.id}` });
+    // Router.push({ pathname: `/product/${res.data.createProduct.id}` });
   };
 
   // 3.5 Create form for handling the update
