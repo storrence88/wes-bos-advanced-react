@@ -48,7 +48,7 @@ const NewProduct = () => {
     event.preventDefault();
     const res = await createProduct();
     clearForm();
-    Router.push({ pathname: `/products/${res.data.createProduct.id}` });
+    Router.push({ pathname: `/product/${res.data.createProduct.id}` });
   };
 
   return (
