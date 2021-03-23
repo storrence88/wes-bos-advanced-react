@@ -10,12 +10,12 @@ export default function paginationField() {
 
     // First thing it does is ask the read function for those items
     read(existing = [], { args, cache }) {
-      console.log({ existing, args, cache });
+      // console.log({ existing, args, cache });
       const { skip, first } = args;
 
       // Read the number of items on the page from the cache
       const data = cache.readQuery({ query: PAGINATION_QUERY });
-      console.log({ data });
+      // console.log({ data });
       const count = data?._allProductsMeta?.count;
       const page = skip / first + 1;
       const pages = Math.ceil(count / first);
@@ -48,12 +48,12 @@ export default function paginationField() {
       const { skip, first } = args;
       // This runs when the Apollo client comes back from the network with our products
       console.log(`Merging ${incoming.length} items from the network`);
-      console.log({ incoming });
+      // console.log({ incoming });
       const merged = existing ? existing.slice(0) : [];
       for (let i = skip; i < skip + incoming.length; ++i) {
         merged[i] = incoming[i - skip];
       }
-      console.log(merged);
+      // console.log(merged);
       // We returned the merged items from cache and run read() function again
       return merged;
     }
