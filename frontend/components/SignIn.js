@@ -33,7 +33,6 @@ const SignIn = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await signin();
-    console.log({ data });
     resetForm();
   };
   const error =
