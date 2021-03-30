@@ -4,6 +4,7 @@ import { createAuth } from '@keystone-next/auth';
 import { User } from './schemas/User';
 import { Product } from './schemas/Product';
 import { ProductImage } from './schemas/ProductImage';
+import { CartItem } from './schemas/CartItem';
 import 'dotenv/config';
 import { insertSeedData } from './seed-data';
 import { sendPasswordResetEmail } from './lib/mail';
@@ -51,7 +52,8 @@ export default withAuth(
       // Schema items go in here
       User,
       Product,
-      ProductImage
+      ProductImage,
+      CartItem
     }),
     ui: {
       // TODO: Change this for roles
