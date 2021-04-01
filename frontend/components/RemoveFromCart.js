@@ -20,9 +20,14 @@ const REMOVE_ITEM_FROM_CART = gql`
   }
 `;
 
+const update = (cache, payload) => {
+  cache.evict(cache.identify(payload.data.deleteCartItem));
+};
+
 const RemoveFromCart = ({ id }) => {
   const [removeItemFromCart, { loading, error, data }] = useMutation(REMOVE_ITEM_FROM_CART, {
-    variables: { id: id }
+    variables: { id: id },
+    update: update
   });
 
   return (
