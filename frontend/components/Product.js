@@ -4,6 +4,7 @@ import Title from './styles/Title';
 import PriceTag from './styles/PriceTag';
 import Link from 'next/link';
 import DestroyProduct from './DestroyProduct';
+import AddToCart from './AddToCart';
 
 const Product = ({ product }) => {
   return (
@@ -16,6 +17,7 @@ const Product = ({ product }) => {
       <p>{product.description}</p>
       <div className='buttonList'>
         <Link href={`/product/${product.id}/edit`}>Edit ✏️</Link>
+        <AddToCart id={product.id} />
         <DestroyProduct id={product.id}>Delete</DestroyProduct>
       </div>
     </ItemStyles>
