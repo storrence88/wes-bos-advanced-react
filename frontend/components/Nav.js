@@ -8,7 +8,10 @@ import CartCount from './CartCount';
 const Nav = () => {
   const user = useUser();
   const { openCart } = useCart();
-  const itemCount = user?.cart?.reduce((tally, cartItem) => tally + cartItem.quantity, 0);
+  const itemCount = user?.cart?.reduce(
+    (tally, cartItem) => tally + (cartItem.product ? cartItem.quantity : 0),
+    0
+  );
 
   return (
     <NavStyles>
