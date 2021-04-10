@@ -1,9 +1,12 @@
 import NewProduct from '../components/NewProduct';
+import PleaseSignIn from '../components/PleaseSignIn';
 
 const SellPage = () => {
   return (
     <div>
-      <NewProduct />
+      <PleaseSignIn>
+        <NewProduct />
+      </PleaseSignIn>
     </div>
   );
 };
